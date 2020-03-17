@@ -2,6 +2,9 @@
 this is a distributed application demo for java project
 
 数据库 mysql
+依赖：mysql-connector spring-jdbc spring-mybatis
+druid 
+
 
 缓存 redis
 
