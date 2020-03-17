@@ -6,13 +6,23 @@
     <groupId>com.william.demo</groupId>
     <artifactId>distrubuted</artifactId>
     <version>1.0.0</version>
-    <modules>
-        <module>api-service</module>
-        <module>tm-suser</module>
-        <module>tms-order</module>
-    </modules>
 
     <packaging>pom</packaging>
+
+    <modules>
+        <module>api-service</module>
+        <module>tm-user</module>
+        <module>tms-order</module>
+        <module>comm-component</module>
+    </modules>
+
+
+    <!-- Inherit defaults from Spring Boot -->
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.1.12.RELEASE</version>
+    </parent>
 
 
     <!--统一依赖管理-->
