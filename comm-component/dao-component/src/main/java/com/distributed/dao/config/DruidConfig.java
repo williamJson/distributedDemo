@@ -27,7 +27,7 @@ public class DruidConfig {
      * @return
      */
     @Bean(name = "dataSource")
-    public DataSource getDataSource() {
+    public DataSource dataSource() {
         DruidDataSource dataSource = new DruidDataSource();
         dataSource.configFromPropety(properties.toProperties());
         return dataSource;

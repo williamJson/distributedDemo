@@ -1,6 +1,8 @@
 package com.distributed.dao.properties;
 
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 import java.lang.reflect.Field;
@@ -8,11 +10,14 @@ import java.util.Properties;
 
 /**
  * druid配置文件
- *
+ * see more info https://github.com/alibaba/druid/wiki/DruidDataSource%E9%85%8D%E7%BD%AE%E5%B1%9E%E6%80%A7%E5%88%97%E8%A1%A8
  * @author wyq
  */
 @ConfigurationProperties(prefix = "dataSource.druid")
 public class DruidProperties {
+
+
+    private Logger logger = LoggerFactory.getLogger(this.getClass());
 
     //基础信息
 
@@ -93,9 +98,11 @@ public class DruidProperties {
             return properties;
         }
         for (Field item : fields) {
+            String key = null;
+            String value = null;
             try {
-                String key = item.getName();
-                String value = (String) item.get(item);
+                key = item.getName();
+                value = (String) item.get(item);
                 //如果属性值为空，则不进行转换
                 if (null == value || value.length() == 0) {
                     continue;
@@ -108,7 +115,7 @@ public class DruidProperties {
 
                 //最终处理方式
                 //打印error日志，提示配置文件出错
-
+                logger.error("druid properties file has a problem with field:" + key, e);
                 //系统推出
                 System.exit(0);
             }
@@ -117,4 +124,147 @@ public class DruidProperties {
 
     }
 
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getInitialSize() {
+        return initialSize;
+    }
+
+    public void setInitialSize(String initialSize) {
+        this.initialSize = initialSize;
+    }
+
+    public String getMinIdle() {
+        return minIdle;
+    }
+
+    public void setMinIdle(String minIdle) {
+        this.minIdle = minIdle;
+    }
+
+    public String getMaxActive() {
+        return maxActive;
+    }
+
+    public void setMaxActive(String maxActive) {
+        this.maxActive = maxActive;
+    }
+
+    public String getMaxWait() {
+        return maxWait;
+    }
+
+    public void setMaxWait(String maxWait) {
+        this.maxWait = maxWait;
+    }
+
+    public String getTimeBetweenEvictionRunsMillis() {
+        return timeBetweenEvictionRunsMillis;
+    }
+
+    public void setTimeBetweenEvictionRunsMillis(String timeBetweenEvictionRunsMillis) {
+        this.timeBetweenEvictionRunsMillis = timeBetweenEvictionRunsMillis;
+    }
+
+    public String getMinEvictableIdleTimeMillis() {
+        return minEvictableIdleTimeMillis;
+    }
+
+    public void setMinEvictableIdleTimeMillis(String minEvictableIdleTimeMillis) {
+        this.minEvictableIdleTimeMillis = minEvictableIdleTimeMillis;
+    }
+
+    public String getMaxEvictableIdleTimeMillis() {
+        return maxEvictableIdleTimeMillis;
+    }
+
+    public void setMaxEvictableIdleTimeMillis(String maxEvictableIdleTimeMillis) {
+        this.maxEvictableIdleTimeMillis = maxEvictableIdleTimeMillis;
+    }
+
+    public String getValidationQuery() {
+        return validationQuery;
+    }
+
+    public void setValidationQuery(String validationQuery) {
+        this.validationQuery = validationQuery;
+    }
+
+    public String getTestWhileIdle() {
+        return testWhileIdle;
+    }
+
+    public void setTestWhileIdle(String testWhileIdle) {
+        this.testWhileIdle = testWhileIdle;
+    }
+
+    public String getTestOnBorrow() {
+        return testOnBorrow;
+    }
+
+    public void setTestOnBorrow(String testOnBorrow) {
+        this.testOnBorrow = testOnBorrow;
+    }
+
+    public String getTestOnReturn() {
+        return testOnReturn;
+    }
+
+    public void setTestOnReturn(String testOnReturn) {
+        this.testOnReturn = testOnReturn;
+    }
+
+    public String getPoolPreparedStatements() {
+        return poolPreparedStatements;
+    }
+
+    public void setPoolPreparedStatements(String poolPreparedStatements) {
+        this.poolPreparedStatements = poolPreparedStatements;
+    }
+
+    public String getMaxOpenPreparedStatements() {
+        return maxOpenPreparedStatements;
+    }
+
+    public void setMaxOpenPreparedStatements(String maxOpenPreparedStatements) {
+        this.maxOpenPreparedStatements = maxOpenPreparedStatements;
+    }
+
+    public String getFilters() {
+        return filters;
+    }
+
+    public void setFilters(String filters) {
+        this.filters = filters;
+    }
+
+    public String getAsyncInit() {
+        return asyncInit;
+    }
+
+    public void setAsyncInit(String asyncInit) {
+        this.asyncInit = asyncInit;
+    }
 }

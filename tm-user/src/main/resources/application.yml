@@ -1,0 +1,27 @@
+server:
+  port: 8080
+spring:
+  profiles:
+    active: dev
+  datasource:
+    druid:
+#      driver: "com.mysql.jdbc.Driver"
+      url: "jdbc:mysql://118.25.10.166/repl_data?useUnicode=true&characterEncoding=utf-8"
+      username: "dev1234"
+      password: "dev1234"
+      initial-size: 5
+      min-idle: 10
+      max-active: 20
+      max-wait: 60000
+      time-between-eviction-runs-millis: 2000
+      min-evictable-idle-time-millis: 600000
+      max-evictable-idle-time-millis: 900000
+      validation-query: "select 1"
+      test-while-idle: true
+      test-on-borrow: false
+      test-on-return: false
+      keep-alive: true
+      phy-max-use-count: 1000
+      filter: "stat"
+mybatis:
+  mapper-locations: classpath:com/distributed/user/dao/*.xml
