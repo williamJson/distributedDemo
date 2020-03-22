@@ -4,8 +4,8 @@ spring:
   profiles:
     active: dev
   datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
     druid:
-#      driver: "com.mysql.jdbc.Driver"
       url: "jdbc:mysql://118.25.10.166/repl_data?useUnicode=true&characterEncoding=utf-8"
       username: "dev1234"
       password: "dev1234"
@@ -23,5 +23,6 @@ spring:
       keep-alive: true
       phy-max-use-count: 1000
       filter: "stat"
+
 mybatis:
   mapper-locations: classpath:com/distributed/user/dao/*.xml

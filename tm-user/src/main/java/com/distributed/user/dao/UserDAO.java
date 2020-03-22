@@ -1,6 +1,6 @@
 package com.distributed.user.dao;
 
-import com.distributed.user.ov.User;
+import com.distributed.api.po.User;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Component;
 

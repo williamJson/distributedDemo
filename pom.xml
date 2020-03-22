@@ -11,10 +11,17 @@
 
 
     <properties>
+        <!--spring boot版本-->
         <spring.boot.version>2.1.12.RELEASE</spring.boot.version>
+        <!--spring 版本-->
         <spring.version>5.1.13.RELEASE</spring.version>
-        <druid.version>1.1.20</druid.version>
+        <!--druid 版本-->
+        <druid.version>1.1.21</druid.version>
+        <!--mybatis 版本-->
+        <mybatis.version>2.1.0</mybatis.version>
     </properties>
+
+
     <modules>
         <module>api-service</module>
         <module>tm-user</module>
@@ -33,7 +40,20 @@
 
     <!--统一依赖管理-->
     <dependencyManagement>
-
+        <dependencies>
+            <!--druid连接池-->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid-spring-boot-starter</artifactId>
+                <version>${druid.version}</version>
+            </dependency>
+            <!--mybatis orm 依赖-->
+            <dependency>
+                <groupId>org.mybatis.spring.boot</groupId>
+                <artifactId>mybatis-spring-boot-starter</artifactId>
+                <version>${mybatis.version}</version>
+            </dependency>
+        </dependencies>
     </dependencyManagement>
 
 </project>

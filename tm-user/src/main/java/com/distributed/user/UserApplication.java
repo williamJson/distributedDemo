@@ -1,9 +1,11 @@
 package com.distributed.user;
 
 
+import com.distributed.api.po.User;
 import com.distributed.user.dao.UserDAO;
-import com.distributed.user.ov.User;
 import org.mybatis.spring.annotation.MapperScan;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -25,6 +27,8 @@ import java.util.List;
 public class UserApplication {
 
 
+    private static final Logger logger = LoggerFactory.getLogger(UserApplication.class);
+
     public static void main(String[] args) {
         SpringApplication.run(UserApplication.class, args);
     }
@@ -35,6 +39,8 @@ public class UserApplication {
 
     @RequestMapping("/users")
     public List<User> getUsers() {
+        logger.debug("this is debugger...");
+        logger.info("this is new request...");
         return userDAO.getUserList();
     }
 }

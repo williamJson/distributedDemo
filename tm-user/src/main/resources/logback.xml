@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--这里的debug 参数 是否打印logback 的debug日志-->
+<!--scan 当配置文件更改时，进行扫描 scanPeriod:多久进行检测一次-->
+<!--packagingData是否在堆栈中显示包数据-->
+<configuration debug="false" scan="false" scanPeriod="5 seconds">
+
+    <!--输出日志到控制台-->
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!--打印mysql语句-->
+    <logger name="com.distributed.user.dao" level="DEBUG"/>
+    <!--level 日志打印级别-->
+    <root level="info">
+        <appender-ref ref="STDOUT"/>
+    </root>
+</configuration>

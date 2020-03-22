@@ -1,8 +1,6 @@
-package com.distributed.user.ov;
+package com.distributed.api.po;
 
-import java.io.Serializable;
-
-public class User implements Serializable {
+public class User {
 
     private static final Long serialVersionUID = 1L;
 

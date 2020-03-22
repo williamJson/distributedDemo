@@ -11,10 +11,5 @@
 
     <artifactId>comm-component</artifactId>
     <packaging>pom</packaging>
-    <modules>
-        <module>redis-component</module>
-        <module>dao-component</module>
-    </modules>
-
 
 </project>
